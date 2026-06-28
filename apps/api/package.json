@@ -1,0 +1,11 @@
+{
+  "name": "@kb/api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'api dev stub'",
+    "build": "echo 'api build stub'",
+    "lint": "echo 'api lint stub'",
+    "typecheck": "echo 'api typecheck stub'"
+  }
+}

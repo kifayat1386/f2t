@@ -1,0 +1,11 @@
+{
+  "name": "@kb/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'mobile dev stub'",
+    "build": "echo 'mobile build stub'",
+    "lint": "echo 'mobile lint stub'",
+    "typecheck": "echo 'mobile typecheck stub'"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "@kb/types",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "echo 'types typecheck stub'"
+  }
+}
