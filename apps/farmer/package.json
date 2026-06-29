@@ -1,0 +1,11 @@
+{
+  "name": "@kb/farmer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'farmer dev stub'",
+    "build": "echo 'farmer build stub'",
+    "lint": "echo 'farmer lint stub'",
+    "typecheck": "echo 'farmer typecheck stub'"
+  }
+}

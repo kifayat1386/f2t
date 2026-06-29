@@ -1,0 +1,15 @@
+:root {
+  --bg-cream: #F9F7F2;
+  --text-charcoal: #2D3436;
+  --accent-sage: #4A5D4E;
+  --accent-sage-light: #6E8874;
+  --border-light: rgba(45, 52, 54, 0.1);
+  --white: #FFFFFF;
+  --error: #E74C3C;
+}
+
+body {
+  background-color: var(--bg-cream);
+  color: var(--text-charcoal);
+  font-family: 'Inter', sans-serif;
+}

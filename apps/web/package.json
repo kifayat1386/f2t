@@ -1,0 +1,11 @@
+{
+  "name": "@kb/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'web dev stub'",
+    "build": "echo 'web build stub'",
+    "lint": "echo 'web lint stub'",
+    "typecheck": "echo 'web typecheck stub'"
+  }
+}

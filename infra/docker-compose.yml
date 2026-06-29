@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgis/postgis:16-3.4-alpine
+    environment:
+      POSTGRES_DB: khamarbari
+      POSTGRES_USER: khamar
+      POSTGRES_PASSWORD: khamar_dev_secret
+    ports: ["5432:5432"]
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+  minio:
+    image: minio/minio
+    command: server /data --console-address ":9001"
+    ports: ["9000:9000", "9001:9001"]
+    environment:
+      MINIO_ROOT_USER: khamar_minio
+      MINIO_ROOT_PASSWORD: khamar_minio_secret

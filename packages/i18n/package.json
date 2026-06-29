@@ -1,0 +1,8 @@
+{
+  "name": "@kb/i18n",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "echo 'i18n typecheck stub'"
+  }
+}

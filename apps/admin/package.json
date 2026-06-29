@@ -1,0 +1,11 @@
+{
+  "name": "@kb/admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'admin dev stub'",
+    "build": "echo 'admin build stub'",
+    "lint": "echo 'admin lint stub'",
+    "typecheck": "echo 'admin typecheck stub'"
+  }
+}
