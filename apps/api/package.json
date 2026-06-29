@@ -6,6 +6,15 @@
     "dev": "echo 'api dev stub'",
     "build": "echo 'api build stub'",
     "lint": "echo 'api lint stub'",
-    "typecheck": "echo 'api typecheck stub'"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.8",
+    "vitest": "^3.0.5",
+    "typescript": "^5.7.3"
   }
 }
