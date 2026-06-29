@@ -1,0 +1,128 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  extensions = [postgis(version: "3.4")]
+}
+
+enum ProductStatus {
+  DRAFT
+  ACTIVE
+  ARCHIVED
+}
+
+enum OrderStatus {
+  PENDING_PAYMENT
+  PAID_ESCROWED
+  CONFIRMED
+  PACKED
+  SHIPPED
+  IN_TRANSIT
+  DELIVERED
+  COMPLETED
+  CANCELLED
+  RETURN_REQUESTED
+  RETURNED
+  REFUNDED
+  DISPUTED
+  RESOLVED_BUYER
+  RESOLVED_SELLER
+}
+
+enum PaymentMethod {
+  BKASH
+  NAGAD
+  CARD
+  COD
+}
+
+enum LedgerAccount {
+  PLATFORM_CASH
+  ESCROW_LIABILITY
+  FARMER_PAYABLE
+  COURIER_PAYABLE
+  COMMISSION_REVENUE
+  VAT_PAYABLE
+  SHIPPING_EXPENSE
+}
+
+model Farm {
+  id         String                                @id @default(cuid())
+  name       String
+  ownerName  String
+  division   String
+  district   String
+  location   Unsupported("geometry(Point, 4326)")?
+  isVerified Boolean                               @default(false)
+  products   Product[]
+  createdAt  DateTime                              @default(now())
+}
+
+model Product {
+  id         String           @id @default(cuid())
+  farmId     String
+  nameBn     String
+  nameEn     String
+  basePriceP Int // integer poisha
+  unit       String
+  isOrganic  Boolean          @default(false)
+  status     ProductStatus    @default(DRAFT)
+  variants   ProductVariant[]
+  farm       Farm             @relation(fields: [farmId], references: [id])
+}
+
+model ProductVariant {
+  id        String  @id @default(cuid())
+  productId String
+  nameEn    String
+  nameBn    String
+  priceP    Int // integer poisha
+  stock     Int     @default(0)
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model Order {
+  id            String         @id @default(cuid())
+  buyerId       String
+  status        OrderStatus    @default(PENDING_PAYMENT)
+  subtotalP     Int
+  deliveryFeeP  Int            @default(0)
+  totalP        Int
+  paymentMethod PaymentMethod?
+  carbonGrams   Int            @default(0)
+  items         OrderItem[]
+  ledgerEntries LedgerEntry[]
+}
+
+model OrderItem {
+  id               String  @id @default(cuid())
+  orderId          String
+  productId        String
+  productVariantId String?
+  quantity         Int
+  unitPriceP       Int // integer poisha
+  order            Order   @relation(fields: [orderId], references: [id])
+}
+
+model LedgerEntry {
+  id       String        @id @default(cuid())
+  orderId  String
+  account  LedgerAccount
+  debitP   Int           @default(0)
+  creditP  Int           @default(0)
+  balanceP Int
+  order    Order         @relation(fields: [orderId], references: [id])
+}
+
+model AuditLog {
+  id          String   @id @default(cuid())
+  action      String
+  payload     Json?
+  prevHash    String
+  currentHash String // SHA-256(id+action+payload+prevHash)
+  seq         Int      @unique @default(autoincrement())
+  createdAt   DateTime @default(now())
+}
