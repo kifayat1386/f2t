@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { useI18n } from './I18nProvider';
-import { Button } from '@kb/ui';
+
+// Removed Button import from @kb/ui that was failing
 
 export function Navbar() {
   const { t, toggleLocale } = useI18n();
@@ -20,9 +21,12 @@ export function Navbar() {
       <div className="flex items-center space-x-4">
         <Link href="/farmer" className="text-sm font-medium text-charcoal">{t('nav.farmer')}</Link>
         <Link href="/admin" className="text-sm font-medium text-charcoal">{t('nav.admin')}</Link>
-        <Button variant="secondary" size="sm" onClick={toggleLocale}>
+        <button
+          className="border border-charcoal text-charcoal hover:bg-charcoal/5 h-8 px-3 text-xs inline-flex items-center justify-center rounded-r2 font-sans font-medium transition-colors"
+          onClick={toggleLocale}
+        >
           {t('btn.toggle')}
-        </Button>
+        </button>
       </div>
     </nav>
   );
