@@ -23,7 +23,7 @@ Core Pillars: Trust as Moat, Escrow Settlement, Hash-Chained Ledger.
 ## 2. Architecture & Technologies
 | Category | Technologies |
 |---|---|
-| Apps | Next.js 15 (web, farmer, admin), Expo SDK 52 (mobile), NestJS 10 (API) |
+| Apps | Next.js 15 (Unified Web App), Expo SDK 52 (mobile), NestJS 10 (API) |
 | Languages | TypeScript 5.x strict, React 19, Zod schemas |
 | Database | PostgreSQL 16 + PostGIS, Prisma 5, Redis 7 + BullMQ 5 |
 | Realtime & IoT | MQTT v5 (warehouse sensors), Socket.IO 4 (live updates) |
@@ -123,7 +123,7 @@ model AuditLog {
 }
 ```
 
-## 5. Build Roadmap (14 Phases)
+## 5. Build Roadmap (12 Phases)
 1. **P1 SCAFFOLD:** Turborepo monorepo, shared packages, ESLint strict, Tailwind tokens. Docker Compose Postgres + Redis.
 2. **P2 SCHEMA:** Prisma schemas (Farm, Product, Order, Ledger, AuditLog). PostGIS and Seed scripts.
 3. **P3 DESIGN SYSTEM:** All UI primitives, Premium Minimalist tokens, Motion CSS vars.
@@ -133,11 +133,9 @@ model AuditLog {
 7. **P7 LEDGER:** Escrow hold on payment. Double-entry ledger with multi-party payouts. Hash-chain audit logging.
 8. **P8 IOT + STREAMING:** MQTT v5 broker. Warehouse dashboard, real-time alerts.
 9. **P9 LOGISTICS:** Courier assignment, Mapbox route optimization, POD capture, carbon impact calc.
-10. **P10 WEB STOREFRONT:** Buyer surfaces (Homepage, PDP, Cart, Portfolio, Public Ledger). bn/en toggle.
-11. **P11 FARMER APP:** Dashboard, Product CRUD, S3 images, Inventory adjustments, Payout history.
-12. **P12 ADMIN APP:** GMV metrics, Catalog moderation, Order overrides, Concierge HQ, Reconciliations.
-13. **P13 MOBILE (EXPO):** React Native dual-role app for buyers and couriers (offline sync, push notifications).
-14. **P14 POLISH:** Playwright E2E, Real payment gateways, Mux integration, WCAG 2.1 AA, Prod deployment.
+10. **P10 WEB STOREFRONT:** Consolidated Buyer, Farmer, and Admin surfaces using Next.js route groups. bn/en toggle.
+11. **P11 MOBILE (EXPO):** React Native dual-role app for buyers and couriers (offline sync, push notifications).
+12. **P12 POLISH:** Playwright E2E, Real payment gateways, Mux integration, WCAG 2.1 AA, Prod deployment.
 
 ## 6. Risk Register
 | Severity | Risk Title | Description |
