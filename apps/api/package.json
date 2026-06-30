@@ -10,7 +10,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "mqtt": "^5.15.1"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.8",
