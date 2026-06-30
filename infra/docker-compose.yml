@@ -77,48 +77,6 @@ services:
     ports:
       - "3000:3000"
 
-  farmer:
-    build:
-      context: ..
-      dockerfile: infra/Dockerfile.dev
-    volumes:
-      - ..:/app
-      - /app/node_modules
-    env_file:
-      - ../.env
-    depends_on:
-      postgres:
-        condition: service_healthy
-      redis:
-        condition: service_started
-      minio:
-        condition: service_started
-    command: >
-      sh -c "pnpm install && pnpm run --filter @kb/farmer dev"
-    ports:
-      - "3001:3001"
-
-  admin:
-    build:
-      context: ..
-      dockerfile: infra/Dockerfile.dev
-    volumes:
-      - ..:/app
-      - /app/node_modules
-    env_file:
-      - ../.env
-    depends_on:
-      postgres:
-        condition: service_healthy
-      redis:
-        condition: service_started
-      minio:
-        condition: service_started
-    command: >
-      sh -c "pnpm install && pnpm run --filter @kb/admin dev"
-    ports:
-      - "3002:3002"
-
 volumes:
   pgdata:
   redisdata:
