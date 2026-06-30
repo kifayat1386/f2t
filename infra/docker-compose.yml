@@ -42,6 +42,13 @@ services:
     volumes:
       - ..:/app
       - /app/node_modules
+      - /app/apps/api/node_modules
+      - /app/packages/config/node_modules
+      - /app/packages/i18n/node_modules
+      - /app/packages/sdk/node_modules
+      - /app/packages/services/node_modules
+      - /app/packages/types/node_modules
+      - /app/packages/ui/node_modules
     env_file:
       - ../.env
     depends_on:
@@ -63,6 +70,13 @@ services:
     volumes:
       - ..:/app
       - /app/node_modules
+      - /app/apps/web/node_modules
+      - /app/packages/config/node_modules
+      - /app/packages/i18n/node_modules
+      - /app/packages/sdk/node_modules
+      - /app/packages/services/node_modules
+      - /app/packages/types/node_modules
+      - /app/packages/ui/node_modules
     env_file:
       - ../.env
     depends_on:
