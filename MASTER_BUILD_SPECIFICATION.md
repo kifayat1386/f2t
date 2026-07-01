@@ -149,3 +149,17 @@ model AuditLog {
 | P3 · LOW | WCAG 2.1 AA Accessibility | Screen reader labels and keyboard nav needed for full compliance. Addressed in P14 Polish. |
 
 KhamarBari Premium Farm-to-Door Pantry — Master Build Specification v2.0
+
+## 7. Design System
+> The design is "KhamarBari Premium Pantry" utilizing a light cream background, sage green accents, and a clean minimalist aesthetic. It relies on Playfair Display, Inter, and Space Mono for a technical but artisanal typography scale. All tokens are captured in `tailwind.preset.js`.
+
+### 7.1 Colors
+- **Background / Cream**: `#fcf9f4`
+- **Primary / Sage**: `#506052`
+- **On-Background / Charcoal**: `#1c1c19`
+- **Outline**: `#737873`
+
+### 7.2 Typography
+- **Playfair Display**: Display headings, serif.
+- **Inter**: Body text, labels, sans-serif.
+- **Space Mono**: Data, tags, mono.
